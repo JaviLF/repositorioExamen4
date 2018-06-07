@@ -22,6 +22,7 @@ public class User {
     private String name;
     private String lastName;
     private Blob photo;
+    private Integer cantComment ;
     private boolean admin=false;
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -108,4 +109,14 @@ public class User {
     public List<Comment> getComments(){return comments;}
 
     public void setComments(List<Comment> comments){this.comments=comments;}
+
+    public void cantidadComments () { cantComment=  comments.size();}
+
+    public Integer getCantComment() {
+        return cantComment;
+    }
+
+    public void setCantComment(Integer cantComment) {
+        this.cantComment = cantComment;
+    }
 }

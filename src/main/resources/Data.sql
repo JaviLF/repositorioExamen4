@@ -34,8 +34,8 @@ INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, lat
 INSERT INTO restaurant(id, name,phone,description,likes,category_id,city_id, latitude, longitud) VALUES (57,'La Cantonata',4665698,'Elegante',0,104,50, -17.388921, -66.157468);
 
 
-
-
 INSERT INTO user (id,admin,name,last_name,password,username) VALUES (1,1,'Grillo','Pepe','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','a');
 INSERT INTO user (id,admin,name,last_name,password,username) VALUES (2,0,'ElHonrado','Juan','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aa');
-
+INSERT INTO user (id,admin,name,last_name,password,username) VALUES (3,0,'Gran','Strombolli','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aaa');
+INSERT INTO user (id,admin,name,last_name,password,username) VALUES (4,0,'El','Polilla','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aaaa');
+INSERT INTO user (id,admin,name,last_name,password,username) VALUES (5,0,'El','Gato','$2a$10$QVUYllnp1PMD4aQN/TDese/L78dN0ABWhnolJl0xmMtmTt.7ajx72','aaaaa');

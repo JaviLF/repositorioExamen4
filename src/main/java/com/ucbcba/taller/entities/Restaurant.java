@@ -31,6 +31,8 @@ public class Restaurant {
 
     private Float longitud;
 
+    private Integer cantComment;
+
     @OneToMany
     @JoinColumn(name = "user_id")
     private List<User> userslikes;
@@ -172,4 +174,10 @@ public class Restaurant {
             }
         }
      }
+
+     public void setCantComment(){cantComment=comments.size();}
+
+    public Integer getCantComment() {
+        return cantComment;
+    }
 }

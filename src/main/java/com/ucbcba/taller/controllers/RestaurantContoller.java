@@ -145,6 +145,73 @@ public class RestaurantContoller {
         }
     }
 
+    List<Restaurant> ordenarTopComment(List<Restaurant> listRes){
+        Restaurant aux;
+        for (int i=0; i<listRes.size()-1; i++)
+        {
+            for (int j=i+1; j<listRes.size(); j++)
+            {
+                if(listRes.get(i).getComments().size() <listRes.get(j).getComments().size())
+                {
+                    aux = listRes.get(i);
+                    listRes.set(i,listRes.get(j));
+                    listRes.set(j,aux);
+                }
+            }
+        }
+        return listRes;
+    }
+
+    List<User> ordenarTopUser(List<User> listUser){
+        User aux;
+        for (int i=0; i<listUser.size()-1; i++)
+        {
+            for (int j=i+1; j<listUser.size(); j++)
+            {
+                if(listUser.get(i).getComments().size() <listUser.get(j).getComments().size())
+                {
+                    aux = listUser.get(i);
+                    listUser.set(i,listUser.get(j));
+                    listUser.set(j,aux);
+                }
+            }
+        }
+        return listUser;
+    }
+
+    @RequestMapping(value = "/orderRestaurantsByCommentsPublic",method = RequestMethod.GET)
+    public String orderByComments( Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+        List<Restaurant> restList = (List<Restaurant>) restaurantService.listAllRestaurants();
+//        List<User> userList = (List<User>) userService.listAllUsers();
+        for (Restaurant rest: restList){
+            rest.setRankin(calcularRankin(rest));
+            rest.setCantComment();
+        }
+
+        model.addAttribute("restList", ordenar(restList));
+
+            model.addAttribute("restList", ordenarTopComment(restList));
+            return "showTopRest";
+
+
+    }
+
+    @RequestMapping(value = "/orderUsersByCommentsPublic")
+    public String orderUserByComments(/*PathVariable String x,*/ Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+
+        List<User> userList = (List<User>) userService.listAllUsers();
+        for(User use:userList){
+            use.cantidadComments();
+        }
+            model.addAttribute("userList", ordenarTopUser(userList));
+            return "showTop";
+
+    }
+
     @RequestMapping(value = "/Order/Restaurants/{x}",method = RequestMethod.GET)
     public String orderRestaurants(@PathVariable String x, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

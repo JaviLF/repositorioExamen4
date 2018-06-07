@@ -273,6 +273,33 @@ h2{
     text-decoration: none;
 }
 
+/*----Categorias--*/
+
+.dropdown, .dropup {
+    display: inline-block;
+}
+
+
+.dropdown-menu li a{
+    background-color: black;
+    font-family: 'Tajawal', sans-serif;
+    font-size:15px;
+    letter-spacing: 3px;
+    color:white;
+    filter: alpha(opacity=50);
+}
+
+#bt-categoria{
+
+    background-color: black;
+    background: rgba(0, 0, 0, 0.5);
+    color:white;
+
+    font-family: 'Julius Sans One', sans-serif;
+    letter-spacing: 4px;
+    border: none;
+}
+
 </style>
 
 
@@ -306,6 +333,20 @@ h2{
             </div>
         </div>
     </form>
+
+    <div class="dropdown">
+        <button id="bt-categoria" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Reportes
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="/orderUsersByCommentsPublic">Top Users comentaristas</a></li>
+            <li><a href="/orderRestaurantsByCommentsPublic">Top restaurantes comentados</a></li>
+            <!--<li><a href="/usercategorysearch/102">Heladeria</a></li>-->
+            <!--<li><a href="/usercategorysearch/103">Comidas exóticas</a></li>-->
+            <!--<li><a href="/usercategorysearch/104">Pastas</a></li>-->
+        </ul>
+    </div>
+    <br/>
+    <br/>
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
